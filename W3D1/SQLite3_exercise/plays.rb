@@ -14,9 +14,42 @@ end
 class Play
   attr_accessor :title, :year, :playwright_id
 
-  def self.all
-    data = PlayDBConnection.instance.execute("SELECT * FROM plays")
-    data.map { |datum| Play.new(datum) }
+  class << self #enter singleton scope
+
+    def all
+      data = PlayDBConnection.instance.execute("SELECT * FROM plays")
+      data.map { |datum| Play.new(datum) }
+    end
+
+    def find_by_title(title)
+      play = PlayDBConnection.instance.execute(<<-SQL, title)
+      SELECT
+       *
+      FROM
+       plays
+      WHERE
+       title = ?
+      SQL
+      return nil if play.empty?
+
+      Play.new(play.first)
+    end
+
+    def find_by_playwright(author)
+      playwright = Playwright.find_by_name(author)
+      raise "#{name} not found in DB" unless playwright
+
+      plays = PlayDBConnection.instance.execute(<<-SQL, playwright.id)
+        SELECT
+          *
+        FROM
+          plays
+        WHERE
+          playwright_id = ?
+      SQL
+
+      plays.map { |play| Play.new(play) }
+    end
   end
 
   def initialize(options)
