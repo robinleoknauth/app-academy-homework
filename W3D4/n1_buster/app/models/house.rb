@@ -1,8 +1,7 @@
 class House < ApplicationRecord
   has_many :gardeners,
-    class_name: 'Gardener',
-    foreign_key: :house_id,
-    primary_key: :id
+    class_name: :Gardener,
+    foreign_key: :house_id
 
   has_many :plants,
     through: :gardeners,
@@ -14,7 +13,6 @@ class House < ApplicationRecord
     plants.each do |plant|
       seeds << plant.seeds
     end
-
     seeds
   end
 
@@ -23,7 +21,6 @@ class House < ApplicationRecord
     seeds = []
 
     plants.each do |plant|
-      # will not fire a query for each plant since seeds have already been prefetched
       seeds << plant.seeds
     end
 

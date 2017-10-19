@@ -8,7 +8,7 @@ class Artist < ApplicationRecord
     albums = self.albums
     tracks_count = {}
     albums.each do |album|
-      tracks_count[album.title] = album.tracks.length
+      tracks_count[album.title] = album.tracks.size
     end
 
     tracks_count
