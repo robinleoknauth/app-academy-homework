@@ -120,7 +120,6 @@ class MetaCorgiSnacks
       "* #{result}"
     else
       result
-
     end
 
   end
