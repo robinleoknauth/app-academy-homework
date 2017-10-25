@@ -1,19 +1,25 @@
 /* PHASE 3: Content */
 
 .content {
-
+  width: 900px;
+ border-left: 1px solid #ccc;
+ border-right: 1px solid #ccc;
+ border-bottom: 1px solid #ccc;
+ background: #fff;
 }
 
 .content-sidebar {
-
+  background: #000;
 }
 
 .content-main {
-
+  width: 200px;
+  padding: 20px;
 }
 
 .content h1 {
-
+  width: 620px;
+  padding: 20px;
 }
 
 .content p {
