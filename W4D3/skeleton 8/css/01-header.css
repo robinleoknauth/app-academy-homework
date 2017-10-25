@@ -18,11 +18,15 @@ body {
 }
 
 .header a {
-
+  display: block;
+  padding: 10px 20px;
 }
 
 .header-nav {
-
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
 
 
