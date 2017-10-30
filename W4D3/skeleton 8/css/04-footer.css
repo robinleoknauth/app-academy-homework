@@ -1,11 +1,14 @@
 /* PHASE 4: Footer */
 
 .footer {
-
+width: 900px;
+background: #fff;
+color: #aaa;
+font-size: 14px;
 }
 
 .footer-copy {
-
+  padding: 20px;
 }
 
 .footer-links {
