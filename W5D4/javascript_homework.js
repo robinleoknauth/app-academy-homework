@@ -116,7 +116,7 @@ function isPrime (n) {
   if (n < 2) { return false; }
 
 
-  for (let i = 2; i < n; i++) {
+  for (let i = 2; i < n / 2; i++) {
     if (n % i === 0) {
       return false;
     }
@@ -142,3 +142,14 @@ function sumOfNPrimes (n) {
 
   return sum;
 }
+
+/*
+PART TWO
+*/
+
+// Jingleheimer Callbacks
+
+function titleize(names, callback) {
+  let titleized = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
+  callback(titleized);
+};
