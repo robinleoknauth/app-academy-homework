@@ -92,7 +92,7 @@ function isSubstring(phrase, subphrase) {
 
 
 /*
-Phase Two exercises
+
 
 */
 
