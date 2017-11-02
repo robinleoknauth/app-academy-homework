@@ -9,7 +9,7 @@ function mysteryScoping1() {
 
 mysteryScoping1();
 
-// ç in block, in block
+// result => in block \n in block
 
 
 function mysteryScoping2() {
@@ -153,3 +153,12 @@ function titleize(names, callback) {
   let titleized = names.map(name => `Mx. ${name} Jingleheimer Schmidt`);
   callback(titleized);
 };
+
+titleize(["Mary", "Brian", "Leo"], (names) => {
+  names.forEach(name => console.log(name));
+});
+
+/*
+Mx. Leo Jingleheimer Schmidt
+ ... but yall can call me Leo!
+*/
