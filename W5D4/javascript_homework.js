@@ -32,14 +32,14 @@ out of block
 mysteryScoping3 causes a Syntax Error, because line in 38
 we are trying to redefine a constant
 */
-function mysteryScoping3() {
-  const x = 'out of block';
-  if (true) {
-    var x = 'in block';
-    console.log(x);
-  }
-  console.log(x);
-}
+// function mysteryScoping3() {
+//   const x = 'out of block';
+//   if (true) {
+//     var x = 'in block';
+//     console.log(x);
+//   }
+//   console.log(x);
+// }
 
 mysteryScoping3();
 
@@ -56,23 +56,22 @@ mysteryScoping4();
 
 // results in :  in block, out of block
 
-function mysteryScoping5() {
-  let x = 'out of block';
-  if (true) {
-    let x = 'in block';
-    console.log(x);
-  }
-  let x = 'out of block again';
-  console.log(x);
-}
-
-mysteryScoping5();
+// function mysteryScoping5() {
+//   let x = 'out of block';
+//   if (true) {
+//     let x = 'in block';
+//     console.log(x);
+//   }
+//   let x = 'out of block again';
+//   console.log(x);
+// }
+//
+// mysteryScoping5();
 
 /* SyntaxError
 
 reaasigning the variable again I presume.
-Interestingly my ESlinter does not pick this one out,
-yet points out the one from mysteryScoping3.
+
 
 
 */
@@ -80,11 +79,13 @@ yet points out the one from mysteryScoping3.
 
 // madLib
 
+
 function madLib(verb, adj, noun) {
   return `We shall ${verb.toUpperCase()} the ${adj.toUpperCase()} ${noun.toUpperCase()}.`
 }
 
 // isSubstring
+
 
 function isSubstring(phrase, subphrase) {
   return phrase.includes(subphrase);
@@ -102,7 +103,7 @@ function fizzBuzz (array) {
   const fizzBuzzArr = [];
 
   array.forEach(el => {
-    if ((el % 3 === 0) or (el % 5 === 0)) {
+    if ((el % 3 === 0) ^ (el % 5 === 0)) {
       fizzBuzzArr.push(el);
     }
   });
@@ -131,6 +132,7 @@ function sumOfNPrimes (n) {
   let sum = 0;
   let countPrimes = 0;
   let i = 2;
+
 
   while (countPrimes < n) {
     if (isPrime(i)) {
@@ -162,3 +164,14 @@ titleize(["Mary", "Brian", "Leo"], (names) => {
 Mx. Leo Jingleheimer Schmidt
  ... but yall can call me Leo!
 */
+
+function Elephant ( name, tricks, height ) {
+  this.name = name;
+  this.tricks = tricks;
+  this.height = height;
+};
+
+Elephant.prototype.trumpet = function() {
+
+
+}
