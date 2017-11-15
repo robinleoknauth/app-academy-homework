@@ -1,14 +1,26 @@
-var path = require('path');
+const path = require('path');
+
 module.exports = {
-  entry: {
-    app: ["./js/main.js"]
-  },
+  context: __dirname,
+  entry: './giphy_search.jsx',
   output: {
-    path: path.join(__dirname, 'js'),
-    publicPath: '/js/',
-    filename: 'bundle.js',
-    devtoolModuleFilenameTemplate: '[resourcePath]',
-    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
+    path: path.resolve(__dirname),
+    filename: 'bundle.js'
   },
-  devtool: 'source-maps',
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '*']
+  },
+  devtool: 'source-map'
 };
